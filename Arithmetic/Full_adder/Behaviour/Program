@@ -1,1 +1,24 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+entity full_adder is
+    Port ( i : in STD_LOGIC_VECTOR (2 downto 0);
+           o : out STD_LOGIC_VECTOR (1 downto 0));
+end full_adder;
+
+architecture behaviour of full_adder is
+   
+      
+begin
+   fa:process(i)
+   begin
+   if i(0)='0' then
+     o(0)<= i(1)xor i(2);
+     o(1)<= i(1) and i(2);
+   else
+      o(0)<= i(1)xnor i(2);
+     o(1)<= i(1) or i(2);
+   end if;
+   end process fa;
+        
+end behaviour;

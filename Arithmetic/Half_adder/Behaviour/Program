@@ -1,1 +1,24 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+entity half_adder is
+    Port ( a : in STD_LOGIC;
+           b : in STD_LOGIC;
+           sum : out STD_LOGIC;
+           carry : out STD_LOGIC);
+end half_adder;
+
+architecture Behavioral of half_adder is
+
+begin
+ha:process(a,b)
+ begin
+  if a='1' then
+    sum<=not b;
+    carry<=b;
+  else
+    sum<=b;
+    carry<='0';
+  end if;
+ end process ha;
+end Behavioral;

@@ -1,1 +1,27 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+entity full_adder is
+    Port ( i : in STD_LOGIC_VECTOR (2 downto 0);
+           o : out STD_LOGIC_VECTOR (1 downto 0));
+end full_adder;
+
+architecture structural of full_adder is
+     component half_adder is 
+     port( i1,i2: in std_logic;
+           o1,o2: out std_logic);
+     end component;
+     component or_gate is 
+      port(i1,i2:in std_logic;
+      o1: out std_logic);
+      end component;
+      signal s1,s2,s3: std_logic;
+      
+begin
+   u1: half_adder port map(i(0),i(1),s1,s2);
+   u2 : half_adder port map(s1,i(2),o(0),s3);
+   u3: or_gate port map (s2,s3,o(1));
+ 
+  
+   
+end structural;

@@ -1,1 +1,32 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity half_adder_tb is
+end entity;
+architecture tb of half_adder_tb is
+component half_adder is 
+    Port ( a : in STD_LOGIC;
+           b : in STD_LOGIC;
+           sum : out STD_LOGIC;
+           carry : out STD_LOGIC);
+ end component;
+ signal a,b,sum,carry:STD_LOGIC;
+begin
+uut: half_adder port map(a,b,sum,carry);
+stim:process
+begin
+a<='0';
+b<='0';
+wait for 20ns;
+a<='0';
+b<='1';
+wait for 20ns;
+a<='1';
+b<='0';
+wait for 20ns;
+a<='1';
+b<='1';
+wait for 20ns;
+wait;
+end process;
+end tb;
 

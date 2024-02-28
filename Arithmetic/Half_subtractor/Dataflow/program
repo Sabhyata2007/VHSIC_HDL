@@ -1,1 +1,16 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+entity half_subtrartor is
+    Port ( i : in STD_LOGIC_VECTOR (1 downto 0);
+           o : out STD_LOGIC_VECTOR (1 downto 0));
+end half_subtrartor;
+
+architecture Dataflow of half_subtrartor is
+
+begin
+o(0)<= i(0) xor i(1);
+o(1)<= not(i(0)) and i(1);
+
+
+end Dataflow;

@@ -1,1 +1,22 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity half_subtrartor is
+    Port ( i : in STD_LOGIC_VECTOR (1 downto 0);
+           o : out STD_LOGIC_VECTOR (1 downto 0));
+end half_subtrartor;
+
+architecture Behavioural of half_subtrartor is
+  begin
+  hs: process(i)
+    begin
+     if i(0)='1'then
+       o(0)<=i(1);
+       o(1)<=i(1);
+     else 
+     o(0)<= not(i(1));
+     o(1)<= '0';
+    end if;
+   end process hs;
+end Behavioural;
 

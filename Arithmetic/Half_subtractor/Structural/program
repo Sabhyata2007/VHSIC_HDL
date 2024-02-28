@@ -1,1 +1,28 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+entity half_subtrartor is
+    Port ( i : in STD_LOGIC_VECTOR (1 downto 0);
+           o : out STD_LOGIC_VECTOR (1 downto 0));
+end half_subtrartor;
+
+architecture Structural of half_subtrartor is
+  component xor_gate is 
+      port(i1,i2: in std_logic; 
+           o1: out std_logic);
+   end component;
+   component not_gate is 
+   port( i1: in std_logic ;  
+   o1: out std_logic );
+   end component ;
+   component and_gate is    
+   port( i1,i2 : in std_logic;  
+         o1: out std_logic);
+   end component;
+   signal s1: std_logic;
+   begin
+   u1: xor_gate port map(i(0),i(1),o(0));
+   u2: not_gate port map(i(0),s1);
+   u3: and_gate port map(s1,i(1),o(1));
+   
+end Structural;

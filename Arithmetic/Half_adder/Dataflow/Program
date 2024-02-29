@@ -9,7 +9,7 @@ entity half_adder is
            sum : out STD_LOGIC);
 end half_adder;
 
-architecture dataflow of half_adder_dataflow is
+architecture dataflow of half_adder is
 
 begin
 sum<= a xor b;

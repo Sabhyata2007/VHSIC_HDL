@@ -1,1 +1,24 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+entity mul4_1 is
+    Port ( s : in STD_LOGIC_VECTOR (1 downto 0);
+           y : in STD_LOGIC_VECTOR (3 downto 0);
+           o: out STD_LOGIC);
+end mul4_1;
+
+architecture  behavior of mul4_1 is
+begin
+  process (s,y)
+   begin
+      if s="00" then
+      o<=y(0);
+   elsif s="01" then
+      o<=y(1);
+   elsif s="10" then
+      o<=y(2);
+   else
+      o<=y(3);
+   end if;
+ end process ;
+end behavior;

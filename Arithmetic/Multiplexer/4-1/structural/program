@@ -1,1 +1,22 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+entity mul4_1 is
+    Port ( s : in STD_LOGIC_VECTOR (1 downto 0);
+           y : in STD_LOGIC_VECTOR (3 downto 0);
+           o: out STD_LOGIC);
+end mul4_1;
+
+architecture  behavior of mul4_1 is
+component mul2_1 is
+   port(i1 :in std_logic;
+        y1,y2: in std_logic;
+        o1:out std_logic); 
+end component;
+signal s1,s2: std_logic;
+begin 
+u1: mul2_1 port map(s(0),y(0),y(1),s1);
+u2: mul2_1 port map(s(0),y(2),y(3),s2);
+u3: mul2_1 port map(s(1),s1,s2,o);
+
+end behavior;

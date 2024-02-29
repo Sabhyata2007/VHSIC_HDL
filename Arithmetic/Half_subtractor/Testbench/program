@@ -1,1 +1,26 @@
-
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity half_subtractor_tb is
+end entity;
+architecture tb of half_subtractor_tb is
+component half_subtractor is 
+    Port ( i: in std_logic_vector(1 downto 0);
+           o: out std_logic_vector(1 downto 0) );
+ end component;
+ signal i: std_logic_vector(1 downto 0);
+ signal o: std_logic_vector(1 downto 0);
+ begin
+ uut: half_subtractor port map(i=>i,o=>o);
+ stim:process
+begin
+i<="00";
+wait for 20ns;
+i<="01";
+wait for 20ns;
+i<="10";
+wait for 20ns;
+i<="11";
+wait for 20ns;
+wait;
+end process;
+end tb;

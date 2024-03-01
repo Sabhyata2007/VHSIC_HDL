@@ -1,1 +1,22 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity demux1_4 is
+    Port ( s : in STD_LOGIC_VECTOR (1 downto 0);
+           d : in STD_LOGIC;
+           y : out STD_LOGIC_VECTOR (3 downto 0));
+end demux1_4;
+
+architecture structural of demux1_4 is
+component demux1_2 is 
+port( i1 : in std_logic; 
+      e1: in std_logic;
+      o1,o2: out std_logic);
+ end component;
+signal s1,s2: std_logic;
+begin
+u1: demux1_2 port map(d,s(0),s1,s2);
+u2: demux1_2 port map(s1,s(1),y(0),y(1));
+u3: demux1_2 port map(s2,s(1),y(2),y(3));
+end structural;
 

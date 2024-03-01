@@ -1,1 +1,26 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity demux1_4 is
+    Port ( s : in STD_LOGIC_VECTOR (1 downto 0);
+           d : in STD_LOGIC;
+           y : out STD_LOGIC_VECTOR (3 downto 0));
+end demux1_4;
+
+architecture Behavioral of demux1_4 is
+
+begin
+demux: process(s,d)
+begin
+   if s="00" then 
+       y(0)<=d;
+   elsif s="01" then 
+       y(1)<=d;
+   elsif s="10" then 
+       y(2)<=d;
+   else
+       y(3)<=d;
+    end if;
+    end process demux;   
+end Behavioral;
 

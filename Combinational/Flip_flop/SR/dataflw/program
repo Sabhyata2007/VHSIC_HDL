@@ -1,1 +1,19 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity SR_flp is
+    Port ( s : in STD_LOGIC;
+           r : in STD_LOGIC;
+           c : in STD_LOGIC;
+           q : inout STD_LOGIC;
+           qn : inout STD_LOGIC);
+end SR_flp;
+
+architecture Behavioral of SR_flp is
+signal s1,s2 :std_logic ;
+begin
+s1<= s nand c;
+s2<= r nand c;
+q<= s1 nand qn;
+qn<= s2 nand q;
+end Behavioral;
 
